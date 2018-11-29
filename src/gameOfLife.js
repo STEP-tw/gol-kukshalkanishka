@@ -27,5 +27,4 @@ const nextGeneration = function(currGeneration,{topLeft,bottomRight}) {
   );
   return alivePositions;
 }
-
 module.exports = { nextGeneration };

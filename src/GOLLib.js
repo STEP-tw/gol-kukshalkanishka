@@ -4,6 +4,7 @@ let world = { generateGrid : function({length, breadth}) {
   this.grid= grid.map((x)=>x.slice());
   return grid;
 }, 
+
   grid : [], 
 
   calculateGridSize: function() { 
@@ -108,6 +109,6 @@ let world = { generateGrid : function({length, breadth}) {
     this.grid = grid;
     return grid;
   }
-}
+};
 
 exports.world = world;
