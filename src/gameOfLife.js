@@ -16,8 +16,8 @@ const nextGeneration = function(currGeneration,{topLeft,bottomRight}) {
   let aliveCells = currGeneration.map(
     (cell)=>[cell[0]-topLeft[0],cell[1]-topLeft[1]]
   );
-  let length = bottomRight[0]-topLeft[0];
-  let breadth = bottomRight[1]-topLeft[1];
+  let length = bottomRight[0]-topLeft[0] +1;
+  let breadth = bottomRight[1]-topLeft[1] +1;
   world.generateGrid({length,breadth});
   world.updateWorld(aliveCells);
   newGeneration = world.runWorld(1);
