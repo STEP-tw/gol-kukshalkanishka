@@ -100,7 +100,6 @@ let world = { generateGrid : function({length, breadth}) {
 
   updateWorld : function(aliveCells){
     let grid = this.grid;
-    let {length, breadth} = this.calculateGridSize();
     aliveCells.map((cell) =>{ 
       if(this.isCellValid({row : cell[0],column : cell[1]})) {
         grid[cell[0]][cell[1]] = 1;
