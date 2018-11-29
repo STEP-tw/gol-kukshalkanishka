@@ -7,7 +7,7 @@ const main = function() {
   let breadth = +readline.question('enter world breadth : ');
   console.log(world.createLabelledGrid({length,breadth}));
   let aliveCellsInput = readline.question('Enter alive cells position with spaces : ');
-  let aliveCells = parseInput(aliveCellsInput); 
+  let aliveCells = parseInput(aliveCellsInput, {length, breadth}); 
   console.log(world.updateWorld(aliveCells));
   let iteration = readline.question('enter desired iteration value : ');
   console.log(world.runWorld(iteration));
