@@ -12,14 +12,19 @@ const calculateAliveCellsPos = function(grid, {length, breadth}) {
   return aliveCellsPos;
 }
 
-const nextGeneration = function(currGeneration,{topLeft,bottomRight}) {
+const updateWorld = function(currGeneration, {topLeft, bottomRight}) {
   let aliveCells = currGeneration.map(
     (cell)=>[cell[0]-topLeft[0],cell[1]-topLeft[1]]
   );
+  world.updateWorld(aliveCells);
+  return;
+}
+
+const nextGeneration = function(currGeneration,{topLeft,bottomRight}) {
   let breadth = bottomRight[0]-topLeft[0] +1;
   let length = bottomRight[1]-topLeft[1] +1;
   world.generateGrid({length,breadth});
-  world.updateWorld(aliveCells);
+  updateWorld(currGeneration, {topLeft, bottomRight});
   newGeneration = world.runWorld(1);
   let alivePositions=calculateAliveCellsPos(newGeneration, {length, breadth});
   alivePositions=alivePositions.map(
