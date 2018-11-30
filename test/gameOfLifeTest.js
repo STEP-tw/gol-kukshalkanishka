@@ -38,3 +38,4 @@ describe('nextGeneration',() => {
     let actualNextGen = nextGeneration(currentGeneration,bounds);
     assert.deepEqual(actualNextGen, expectedNextGen);
   });
+});

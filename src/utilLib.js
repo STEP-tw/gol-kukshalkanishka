@@ -15,6 +15,10 @@ const calculateLongestElement = function(list) {
     (element1 + "").length>(element1 + "").length?element1:element2)+"");
 }
 
+const repeat = function(times, char) {
+return new Array(times).fill(char).join("");
+}
+
 const createPrintableBoard = function(grid){
   longestLength = calculateLongestElement(grid).length;
   printableBoard= grid.map((row)=>row.map((col)=>{
@@ -23,12 +27,16 @@ const createPrintableBoard = function(grid){
     }
     return col;
   }));
-
   printableBoard = printableBoard.map((row) =>"|"+row.join("|")+"|");
-  border = new Array((printableBoard[0].length)).fill("-").join("");
+  border = repeat(printableBoard[0].length, "-");
   printableBoard = border+"\n"+printableBoard.join("\n"+border+"\n")+"\n"+border;
   return printableBoard;
 }
 
+const convertCellNotation = function(grid) {
+  return grid.map((x)=>x.map((y) => {if(y==1)return "*"; else{return " ";}}));
+}
+
 exports.parseInput = parseInput;
 exports.createPrintableBoard = createPrintableBoard;
+exports.convertCellNotation = convertCellNotation;
