@@ -20,15 +20,15 @@ return new Array(times).fill(char).join("");
 }
 
 const createPrintableBoard = function(grid){
-  longestLength = calculateLongestElement(grid).length;
-  printableBoard= grid.map((row)=>row.map((col)=>{
+  let longestLength = calculateLongestElement(grid).length;
+  let printableBoard= grid.map((row)=>row.map((col)=>{
     while((col+"").length<longestLength){
       col=" "+col;
     }
     return col;
   }));
   printableBoard = printableBoard.map((row) =>"|"+row.join("|")+"|");
-  border = repeat(printableBoard[0].length, "-");
+  let border = repeat(printableBoard[0].length, "-");
   printableBoard = border+"\n"+printableBoard.join("\n"+border+"\n")+"\n"+border;
   return printableBoard;
 }
